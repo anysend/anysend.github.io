@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Any Send</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+      $('#downloads li').click(function() {
+        $('#downloads .selected').removeClass('selected');
+        $('#dl').prop('class', $(this).prop('class'));
+        $(this).addClass('selected');
+      });
+
+      $('#quick_download button').click(function() {
+         var destination = $('#downloads').offset().top;
+         $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination-20}, 200);
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <span id="logo"></span>
+    <div id="main">
+      <div id="quick_sell" class="section">
+        <h2>Quick &amp; easy filesharing over wifi</h2>
+
+        <p>
+Stop using email to send files to people on your wifi. AnySend is <strong>copy &amp; paste</strong> for your home or office network.
+          <br><br>
+          AnySend works <strong>between devices</strong>. Send something from your Mac to your phone? No problem.
+        </p>
+
+        <div id="quick_download">
+          <button>download</button>
+          <label>available for multiple devices</label>
+        </div>
+      </div> <!-- end #quick_sell -->
+
+      <div id="simplicity" class="section">
+        <h2>So simple it&#8217;s easy</h2>
+
+        <ol class="well">
+          <li class="copy">Copy a file.</li>
+          <li class="who">Paste it to someone.</li>
+          <li class="goes">Done.</li>
+        </ol>
+
+        <h4>
+          Requires AnySend Apps designed for the specific devices. Check out the screenshots.
+        </h4>
+      </div> <!-- end #simplicity -->
+
+      <div id="downloads" class="section">
+        <h2>Get it for your:</h2>
+
+        <ol class="well">
+          <li class="windows"><label></label></li>
+          <li class="mac selected"><label></label></li>
+          <li class="android"><label></label></li>
+          <li class="iphone"><label></label></li>
+          <li class="ipad"><label></label></li>
+        </ol>
+
+        <div id="dl" class="mac">
+          <button class="mac">mac</button>
+          <button class="android">android</button>
+          <form class="windows well">
+            <input type="email" placeholder="add your email">
+            <button>go</button>
+          </form>
+          <form class="ipad well">
+            <input type="email" placeholder="add your email">
+            <button>go</button>
+          </form>
+          <form class="iphone well">
+            <input type="email" placeholder="add your email">
+            <button>go</button>
+          </form>
+        </div>
+      </div> <!-- end #downloads -->
+    </div> <!-- end #main -->
+
+    <footer>
+      <ol id="sharing">
+        <li class="twitter"></li>
+        <li class="facebook"></li>
+        <li class="pinterest"></li>
+        <li class="linkedin"></li>
+      </ol>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,337 @@
+body {
+    background-image: url('images/big_logo.png'), 
+        url('images/devices_linked.png'),
+        url('images/top_gradient.png'),
+        url('images/noise_texture.png');
+
+    background-repeat: no-repeat, no-repeat, repeat-x, repeat;
+    background-position-x: center, center, 0, 0;
+    background-position-y: 25px, -1px, 0, 0;
+
+    font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight:300;
+    color:#1480a1;
+    margin:0;
+}
+
+#main {
+    margin:0 auto;
+    margin-top:543px;
+    width: 970px;
+}
+
+button {
+    background-image: -webkit-linear-gradient(top, rgb(101,192,220), rgb(64,163,195));
+    display:inline-block;
+    text-align:center;
+    width:276px;
+    padding: 10px;
+    border-radius:10px;
+    border:1px solid #093c44;
+    border-style:inset;
+    font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
+    text-transform:capitalize;
+    text-shadow: 0 -1px 1px #093c44;
+    color:white;
+    font-size:20pt;
+    font-weight:500;
+    box-shadow: 0 2px 4px 0 rgba(9, 60, 68, 0.3),
+        inset 0 1px 2px 0 rgba(174, 235, 255, 1);
+    display:block;
+    cursor:pointer;
+}
+
+button:hover {
+    background-image: -webkit-linear-gradient(top, rgb(116,207,235), rgb(78,178,210));
+}
+
+button:active {
+    position:relative;
+    top:1px;
+}
+
+h2 {
+    text-align:center;
+    font-size:37pt;
+    font-weight:300;
+    color:#087797;
+}
+
+#logo {
+    width:238px;
+    height:82px;
+    background-image:url(images/as_logo.png);
+    display:block;
+    position:absolute;
+    right:100px;
+    top:37px;
+}
+
+#quick_sell {
+    padding: 0 10px;
+    height:200px;
+}
+
+    #quick_sell p {
+        float:left;
+        width:574px;
+        box-sizing:border-box;
+        margin:0;
+        font-size:16pt;
+        font-weight:300;
+        line-height:24pt;
+    }
+
+    #quick_sell #quick_download {
+        float:right;
+        width:280px;
+        box-sizing:border-box;
+        text-align:center;
+    }
+
+    #quick_sell label {
+        font-size:13pt;
+        color:#40a3c0;
+        text-shadow: 0 0 1px rgba(255,255,255,0.2);
+        margin-top:8px;
+        font-weight:normal;
+        display:block;
+    }
+
+.well {
+    background: rgba(253,253,253, 1);
+    box-sizing:border-box;
+    border:1px solid rgba(181, 208, 218, 1);
+    border-radius:10px;
+    box-shadow: 1px 1px 1px rgba(241, 247, 250, 0.9);
+}
+
+.section {
+    margin-top:73px;
+}
+
+#simplicity {
+    padding: 0 5px;
+    margin-top:140px;
+}
+
+    #simplicity ol {
+        height:326px;
+        list-style:none;
+        padding:0;
+    }
+
+    #simplicity ol li {
+        float:left;
+        width:33.3333%;
+        box-sizing:border-box;
+        font-size:18pt;
+        font-weight:300;
+        text-align:center;
+        padding-top:253px;
+        background-repeat:no-repeat;
+    }
+
+    #simplicity h4 {
+        text-align:center;
+        color: #40a3c0;
+        margin-top:0;
+        text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+    }
+
+    #simplicity .goes {
+        background-image:url(images/jump_right.png);
+    }
+
+    #simplicity .who {
+        background-image:url(images/who_face.png);
+    }
+
+    #simplicity .copy {
+        background-image:url(images/copy_file.png);
+    }
+
+#downloads {
+    height:300px;
+    margin-top:140px;
+}
+
+    #downloads ol {
+        width: 810px;
+        height: 130px;
+        margin: 0 auto;
+        list-style:none;
+        padding:0;
+    }
+
+    #downloads ol li {
+        width: 20%;
+        height: 130px;
+        display:block;
+        float:left;
+        box-sizing:border-box;
+        padding:0;
+        margin:0;
+        background-repeat:no-repeat;
+        background-position:center;
+        cursor:pointer;
+    }
+
+    #downloads ol li.selected:before {
+        content: '';
+        height:174px;
+        width: 174px;
+        position:absolute;
+        margin-top:-35px;
+        margin-left:-5px;
+        background-repeat:no-repeat;
+        background-image: url(images/circle_highlight.png);
+    }
+
+    #downloads label {
+        display:block;
+        width:69px;
+        height:78px;
+        margin-top:20px;
+        margin-left:50px;
+    }
+
+    #downloads li:hover label {
+        background-position-x:68px;
+    }
+
+    #downloads li.selected label,
+    #downloads li:active label {
+        background-position-x:138px;
+    }
+
+    #downloads .windows label {
+        background-image:url(images/windows_logo.png);
+    }
+
+    #downloads .mac label {
+        background-image:url(images/mac_logo.png);
+    }
+
+    #downloads .android label {
+        background-image:url(images/android_logo.png);
+    }
+
+    #downloads .ipad label {
+        background-image:url(images/ipad_logo.png);
+    }
+
+    #downloads .iphone label {
+        background-image:url(images/iphone_logo.png);
+    }
+
+    #downloads #dl {
+        margin:0 auto;
+        width:50%;
+        margin-top:58px;
+    }
+
+    #downloads button {
+        margin:0 auto;
+        display:none;
+        border-radius:40px;
+    }
+
+    #downloads #dl .well {
+        width:510px;
+        height:60px;
+        box-sizing:border-box;
+        display:none;
+        box-shadow:0 2px 4px rgba(9,60,68, 0.3);
+        border:1px solid #40a2c0;
+    }
+
+    #downloads input {
+        border:0;
+        font-size:21pt;
+        font-weight:100;
+        font-family:Leto, sans-serif;
+        padding:10px 7px;
+        margin-left:10px;
+        background:transparent;
+        text-shadow:0 0 1px #fff;
+        outline:0;
+        box-shadow:none;
+        width:375px;
+    }
+
+    #downloads form button {
+        display:block;
+        float:right;
+        width:77px;
+        border-radius:6px;
+        height:49px;
+        line-height:6px;
+        font-weight:300;
+        margin-top:4px;
+        margin-right:4px;
+    }
+
+    #downloads form input::-webkit-input-placeholder {
+        color:#6a787c;
+    }
+
+    #downloads #dl.mac button.mac,
+    #downloads #dl.windows .well.windows,
+    #downloads #dl.android button.android,
+    #downloads #dl.ipad .well.ipad,
+    #downloads #dl.iphone .well.iphone { display:block; }
+
+#sharing {
+    list-style:none;
+    margin:0 auto;
+    width:30%;
+    text-align:center;
+    margin-top:100px;
+    padding-top:235px;
+    padding-left:0;
+    font-size:0;
+}
+
+    #sharing li {
+        background-color:black;
+        border-radius:5px;
+        height:30px;
+        width:30px;
+        display:inline-block;
+        background-repeat:no-repeat;
+        background-position:center;
+        margin-right:10px;
+    }
+
+    #sharing li:hover {
+        background-color:#2ba8d3;
+    }
+
+    #sharing .twitter {
+        background-image:url(images/twitter_logo.png);
+    }
+
+    #sharing .facebook {
+        background-image:url(images/facebook_logo.png);
+        background-position:14px 6px;
+    }
+
+    #sharing .pinterest {
+        background-image:url(images/pinterest_logo.png);
+        background-position:9px 8px;
+    }
+
+    #sharing .linkedin {
+        background-image:url(images/linkedin_logo.png);
+    }
+
+
+footer {
+    display:block;
+    background-image: url(images/cityscape.png),
+        -webkit-linear-gradient(top, rgba(241,255,252,0), rgba(206, 234, 243, 1));
+    height:534px;
+    background-repeat:no-repeat, repeat;
+    background-position:bottom, bottom;
+}
