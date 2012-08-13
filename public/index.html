@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="main.css" type="text/css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>
+    var A_URL = 'https://play.google.com/store/apps/details?id=adylitica.android.anysend';
+
     $(function() {
       $('#downloads li').click(function() {
         $('#downloads .selected').removeClass('selected');
@@ -17,6 +19,8 @@
          var destination = $('#downloads').offset().top;
          $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination-20}, 200);
       });
+
+      $('#dl button.android').click(function() { location.href = A_URL; });
     });
     </script>
   </head>

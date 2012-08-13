@@ -11,6 +11,8 @@ app.use(express.logger(LOG_FORMAT));
 app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 
+app.get('/favicon.ico', function(req, res) { res.redirect('/images/favicon.png'); });
+
 setInterval(function() {
     if (Math.round(process.memoryUsage().rss / 1024 / 1024) > NODE_MEMORY_LIMIT)
         process.exit();
