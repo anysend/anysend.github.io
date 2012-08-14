@@ -1,12 +1,18 @@
 body {
-    background-image: url('images/big_logo.png'), 
+    background-image: 
         url('images/devices_linked.png'),
         url('images/top_gradient.png'),
         url('images/noise_texture.png');
 
-    background-repeat: no-repeat, no-repeat, repeat-x, repeat;
-    background-position-x: center, center, 0, 0;
-    background-position-y: 25px, -1px, 0, 0;
+    background-repeat:
+        no-repeat,
+        repeat-x,
+        repeat;
+
+    background-position:
+        center -1px,
+        0 0,
+        0 0;
 
     font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
     font-weight:300;
@@ -14,10 +20,98 @@ body {
     margin:0;
 }
 
+#movement {
+    width:1024px;
+    height:1px;
+    margin:0 auto;
+}
+
+    #movement .arc {
+        width:64px; height:82px;
+        position:absolute;
+    }
+
+    #movement .arc .file {
+        background-repeat: no-repeat;
+        background-position:center; 
+        width:82px; height:82px; display:block;
+        opacity:1;
+        -webkit-transform: scale(1);
+    }
+
+    #movement .vanish {
+        -webkit-transition: opacity 0.25s ease-in;
+        opacity:0;
+    }
+
+    #movement .arc1 {
+        top:339px;
+        margin-left:-74px;
+        margin-top:-305px;
+    }
+
+    #movement .arc1 .file {
+        -webkit-transition: -webkit-transform 0.5s ease-in 0.2s;
+        -webkit-transform: scale(0.7);
+    }
+
+    #movement .arc1.moving .file {
+        -webkit-transform: scale(0.4);
+    }
+
+    #movement .arc1.bigger .file {
+        -webkit-transform: scale(0.65);
+        -webkit-transition: -webkit-transform 0.2s ease-in 0.5s;
+    }
+
+    #movement .arc2 .file {
+        -webkit-transition: -webkit-transform 0.4s ease-in 0s;
+        -webkit-transform: scale(0.4);
+    }
+
+    #movement .arc2.bigger .file {
+        -webkit-transform: scale(1);
+        -webkit-transition: -webkit-transform 0.6s ease-in 0.1s;
+    }
+
+    #movement .arc3 .file {
+        -webkit-transition: -webkit-transform 0.4s ease-in 0s;
+        -webkit-transform: scale(0.65);
+    }
+
+    #movement .arc3.bigger .file {
+        -webkit-transform: scale(1);
+        -webkit-transition: -webkit-transform 0.5s ease-in 0.1s;
+    }
+
+    #movement .arc2 {
+        top:0px;
+        margin-left:56px;
+        margin-top:-126px;
+    }
+
+    #movement .arc3 {
+        top:0px;
+        margin-left:56px;
+        margin-top:-126px;
+    }
+
 #main {
     margin:0 auto;
     margin-top:543px;
     width: 970px;
+}
+
+#big_logo {
+    background-image:url(/images/big_logo.png);
+    background-repeat:no-repeat;
+    background-position: center;
+    width:970px;
+    height:600px;
+    position:absolute;
+    margin-top:-613px;
+    margin-left:-2px;
+    z-index:31337;
 }
 
 button {

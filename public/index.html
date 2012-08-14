@@ -5,8 +5,75 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="main.css" type="text/css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/async.min.js"></script>
     <script>
     var A_URL = 'https://play.google.com/store/apps/details?id=adylitica.android.anysend';
+
+
+    function CurveAnimator(points){
+      var from = points[0],
+        to = points[1],
+        c1 = points[2],
+        c2 = points[3];
+
+      this.path = document.createElementNS('http://www.w3.org/2000/svg','path');
+      if (!c1) c1 = from;
+      if (!c2) c2 = to;
+      this.path.setAttribute('d','M'+from.join(',')+'C'+c1.join(',')+' '+c2.join(',')+' '+to.join(','));
+      this.updatePath();
+      CurveAnimator.lastCreated = this;
+    }
+    CurveAnimator.prototype.animate = function(duration,callback,delay){
+      var curveAnim = this;
+      // TODO: Use requestAnimationFrame if a delay isn't passed
+      if (!delay) delay = 1/40;
+      clearInterval(curveAnim.animTimer);
+      var startTime = new Date;
+      curveAnim.animTimer = setInterval(function(){
+        var elapsed = ((new Date)-startTime)/1000;
+        var percent = elapsed/duration;
+        if (percent>=1){
+          percent = 1;
+          clearInterval(curveAnim.animTimer);
+        }
+        var p1 = curveAnim.pointAt(percent-0.01),
+            p2 = curveAnim.pointAt(percent+0.01);
+        callback(curveAnim.pointAt(percent),Math.atan2(p2.y-p1.y,p2.x-p1.x)*180/Math.PI);
+      },delay*1000);
+    };
+    CurveAnimator.prototype.stop = function(){
+      clearInterval(this.animTimer);
+    };
+    CurveAnimator.prototype.pointAt = function(percent){
+      return this.path.getPointAtLength(this.len*percent);
+    };
+    CurveAnimator.prototype.updatePath = function(){
+      this.len = this.path.getTotalLength();
+    };
+    CurveAnimator.prototype.setStart = function(x,y){
+      var M = this.path.pathSegList.getItem(0);
+      M.x = x; M.y = y;
+      this.updatePath();
+      return this;
+    };
+    CurveAnimator.prototype.setEnd = function(x,y){
+      var C = this.path.pathSegList.getItem(1);
+      C.x = x; C.y = y;
+      this.updatePath();
+      return this;
+    };
+    CurveAnimator.prototype.setStartDirection = function(x,y){
+      var C = this.path.pathSegList.getItem(1);
+      C.x1 = x; C.y1 = y;
+      this.updatePath();
+      return this;
+    };
+    CurveAnimator.prototype.setEndDirection = function(x,y){
+      var C = this.path.pathSegList.getItem(1);
+      C.x2 = x; C.y2 = y;
+      this.updatePath();
+      return this;
+    };
 
     $(function() {
       $('#downloads li').click(function() {
@@ -21,12 +88,121 @@
       });
 
       $('#dl button.android').click(function() { location.href = A_URL; });
+
+      var arcs = [];
+
+      arcs.push(
+        {
+          time: 0.9,
+          points: [
+            [76,322], [314,199],
+            [53,0], [250,-50]
+          ],
+          name: 'arc1',
+          file: 'folder',
+          scale: 'smaller'
+        },
+
+        {
+          time: 0.9,
+          points: [
+            [183,357], [842,390],
+            [186,70], [850,10]
+          ],
+          name: 'arc2',
+          file: 'music',
+          scale: 'bigger'
+        },
+
+        {
+          time: 0.9,
+          points: [
+          [834,392], [-60,476],
+          [803,228], [5,110]
+          ],
+          name: 'arc3',
+          file: 'photo',
+          scale: 'smaller'
+        }
+      );
+
+      var flyingIteration = 0;
+
+      var flying = function() {
+        async.forEachSeries(arcs, function(arc, go_on) {
+          flyingIteration++;
+
+          var curve = new CurveAnimator(arc.points);
+
+          var o = $('#movement .' + arc.name)[0];
+
+          $('#movement .moving').removeClass('moving');
+
+          $(o).removeClass('vanish smaller bigger').addClass('moving ' + arc.scale);
+
+          $(o).find('.file').css('background-image', 'url(/images/' + arc.file + '.png)');
+
+          curve.animate(arc.time, function(point,angle) {
+            var transform = 'translateX(' + point.x + 'px) translateY(' + point.y + 'px)';
+
+            o.style.webkitTransform = transform;
+          });
+
+          setTimeout(function() { $(o).addClass('vanish'); }, 1000);
+
+          setTimeout(go_on, arc.time * 1600);
+        },
+        function() {
+          console.log('finished round');
+
+          var shuffle = function(array) {
+              var tmp, current, top = array.length;
+
+              if(top) while(--top) {
+                  current = Math.floor(Math.random() * (top + 1));
+                  tmp = array[current];
+                  array[current] = array[top];
+                  array[top] = tmp;
+              }
+
+              return array;
+          }
+
+          arcs = shuffle(arcs);
+
+          var images = shuffle(['folder', 'photo', 'music', 'note']);
+
+          arcs.forEach(function(arc, i) {
+            var original = arc.points.slice(0);
+            arc.points[0] = original[1]
+            arc.points[1] = original[0];
+            arc.points[2] = original[3];
+            arc.points[3] = original[2];
+            arc.scale = arc.scale === 'bigger' ? 'smaller' : 'bigger';
+            arc.file = images[i];
+          });
+
+          flying();
+        });
+      };
+
+      flying();
+
+      $('#movement').addClass('running');
+
+
     });
     </script>
   </head>
   <body>
+    <div id="movement">
+      <span class="arc1 arc"><span class="file"></span></span>
+      <span class="arc2 arc"><span class="file"></span></span>
+      <span class="arc3 arc"><span class="file"></span></span>
+    </div>
     <span id="logo"></span>
     <div id="main">
+      <div id="big_logo"></div>
       <div id="quick_sell" class="section">
         <h2>Quick &amp; easy filesharing over wifi</h2>
 
