@@ -9,6 +9,7 @@
     <script>
     var A_URL = 'https://play.google.com/store/apps/details?id=adylitica.android.anysend';
 
+    $(function() { $('body').addClass('loaded'); });
 
     function CurveAnimator(points){
       var from = points[0],
@@ -150,7 +151,15 @@
 
           setTimeout(function() { $(o).addClass('vanish'); }, 1000);
 
-          setTimeout(go_on, arc.time * 1600);
+          var buffer = 1000;
+
+          if (flyingIteration === 1) buffer = 2600;
+          else if (flyingIteration === 2) buffer = 2000;
+          else if (flyingIteration > 2) 
+            buffer = 700 * (1 + Math.sin(((0.5*Math.PI/20)*flyingIteration) +
+              0.5*Math.PI));
+
+          setTimeout(go_on, arc.time * 200 + buffer);
         },
         function() {
           console.log('finished round');
@@ -186,7 +195,9 @@
         });
       };
 
-      flying();
+      $(function() {
+        setTimeout(flying, 2300);
+      })
 
       $('#movement').addClass('running');
 
@@ -202,6 +213,7 @@
     </div>
     <span id="logo"></span>
     <div id="main">
+      <div id="arcs"></div>
       <div id="big_logo"></div>
       <div id="quick_sell" class="section">
         <h2>Quick &amp; easy filesharing over wifi</h2>
