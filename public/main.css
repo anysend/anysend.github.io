@@ -1,107 +1,15 @@
-@-webkit-keyframes bounce {
-    0% {
-        background-position:
-            center -701px,
-            center -701px,
-            center -701px,
-            0 0,
-            0 0;
-         
-         -webkit-animation-timing-function: ease-out; }
-   14% {
-       background-position:
-           center -1px,
-           center -1px,
-           center -701px,
-           0 0,
-           0 0;
-        }
-  29% {
-      background-position:
-          center -200px,
-          center -200px,
-          center -701px,
-          0 0,
-          0 0;
-  }
-  34% {
-      background-position:
-          center -1px,
-          center -1px,
-          center -701px,
-          0 0,
-          0 0;
-       }
-  39% {
-      background-position:
-          center -50px,
-          center -50px,
-          center -701px,          
-          0 0,
-          0 0;
-  }
-  43% {
-      background-position:
-          center -1px,
-          center -1px,
-          center -701px,
-          0 0,
-          0 0;
-      
-  }
-  45% {
-      background-position:
-          center -5px,
-          center -5px,
-          center -701px,
-          0 0,
-          0 0;
-  }
-  46% {
-      background-position:
-          center -1px,
-          center -1px,
-          center -701px,
-          0 0,
-          0 0;
-      
-  }
-  46.1% {
-      background-position:
-          center -1px,
-          center -1px,
-          center -1px,
-          0 0,
-          0 0;
-  }
-  100% {
-      background-position:
-          center -1px,
-          center -1px,
-          center -1px,
-          0 0,
-          0 0;
-  }
-}
-
 body {
     background-image: 
-        url('images/devices.png'),
-        url('images/phone.png'),
-        url('images/shadow.png'),
+        url('images/devices_linked.png'),
         url('images/top_gradient.png'),
         url('images/noise_texture.png');
 
     background-repeat:
         no-repeat,
-        no-repeat,
-        no-repeat,
         repeat-x,
         repeat;
 
     background-position:
-        center -1px,
-        center -1px,
         center -1px,
         0 0,
         0 0;
@@ -110,11 +18,6 @@ body {
     font-weight:300;
     color:#1480a1;
     margin:0;
-}
-
-body.loaded {
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation: bounce 2s;
 }
 
 #movement {
@@ -145,6 +48,7 @@ body.loaded {
         top:339px;
         margin-left:-74px;
         margin-top:-305px;
+        -webkit-transform: translateX(76px) translateY(322px);
     }
 
     #movement .arc1 .file {
@@ -213,7 +117,7 @@ body.loaded {
 }
 
 body.loaded #arcs {
-    -webkit-transition:opacity 0.2s ease-in 2s;
+    -webkit-transition:opacity 0.2s ease-in 0.5s;
     opacity:1;
 }
 
