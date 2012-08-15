@@ -1,8 +1,8 @@
 body {
     background-image: 
-        url('images/devices_linked.png'),
-        url('images/top_gradient.png'),
-        url('images/noise_texture.png');
+        url('http://cdn.tomorrow.do/asweb/devices_linked.png'),
+        url('http://cdn.tomorrow.do/asweb/top_gradient.png'),
+        url('http://cdn.tomorrow.do/asweb/noise_texture.png');
 
     background-repeat:
         no-repeat,
@@ -13,6 +13,8 @@ body {
         center -1px,
         0 0,
         0 0;
+
+    background-color:rgb(240, 246, 248);
 
     font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
     font-weight:300;
@@ -442,7 +444,7 @@ h2 {
 
 footer {
     display:block;
-    background-image: url(images/cityscape.png),
+    background-image: url(http://cdn.tomorrow.do/asweb/cityscape.png),
         -webkit-linear-gradient(top, rgba(241,255,252,0), rgba(206, 234, 243, 1));
     height:534px;
     background-repeat:no-repeat, repeat;
