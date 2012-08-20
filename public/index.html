@@ -83,8 +83,13 @@
         $(this).addClass('selected');
       });
 
-      $('#quick_download button').click(function() {
+      $('#quick_download button, strong.devices').click(function() {
          var destination = $('#downloads').offset().top;
+         $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination-20}, 200);
+      });
+
+      $('strong.simplicity').click(function() {
+         var destination = $('#simplicity').offset().top;
          $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination-20}, 200);
       });
 
@@ -146,7 +151,7 @@
           curve.animate(arc.time, function(point,angle) {
             var transform = 'translateX(' + point.x + 'px) translateY(' + point.y + 'px)';
 
-            o.style.webkitTransform = transform;
+            o.style.webkitTransform = o.style.mozTransform = transform;
           });
 
           setTimeout(function() { $(o).addClass('vanish'); }, 1000);
@@ -199,7 +204,42 @@
 
       $('#movement').addClass('running');
 
+      var canonUrl = encodeURIComponent('http://bit.ly/getAnySend');
 
+      $('#sharing .twitter').click(function() {
+        location.href = 'http://twitter.com/home?status=Check out '+canonUrl;
+      });
+
+      $('#sharing .facebook').click(function() {
+        location.href = 'http://www.facebook.com/sharer.php?u='+canonUrl;
+      });
+
+      $('#sharing .pinterest').click(function() {
+        location.href = 'http://pinterest.com/pin/create/button/?url=http://getanysend.com&media=http://cdn.tomorrow.do/asweb/big_logo.png';
+      });
+
+      $('#sharing .linkedin').click(function() {
+        location.href = 'http://www.linkedin.com/shareArticle?mini=true&url=' + canonUrl;
+      });
+
+      $('#dl form button').click(function() { $(this).closest('form').submit(); });
+
+      $('#dl form').submit(function(e) {
+        e.preventDefault();
+
+        var email_match = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        var email_address = $(this).find('input').val();
+
+        if (!email_match.test(email_address)) return;
+
+        $('#dl form input').val(email_address);
+
+        $.post('/interested_in/' + $(this).prop('class').split(' ')[0], 
+        {email: $(this).find('input').val()});
+
+        $(this).closest('form').addClass('submitted');
+      });
     });
     </script>
   </head>
@@ -217,7 +257,7 @@
         <h2>Quick &amp; easy filesharing over wifi</h2>
 
         <p>
-          Stop using email to send files to people on your wifi. AnySend is <strong>copy &amp; paste</strong> for your home or office network. AnySend works <strong>between devices</strong>. Send something from your Mac to your phone? No problem.
+          Stop using email to send files to people on your wifi. AnySend is <strong class='simplicity'>copy &amp; paste</strong> for your home or office network. AnySend works <strong class='devices'>between devices</strong>. Send something from your Mac to your phone? No problem.
         </p>
 
         <div id="quick_download">
@@ -257,14 +297,20 @@
           <form class="windows well">
             <input type="email" placeholder="add your email">
             <button>go</button>
+            <p>Start getting excited, this is coming soon!</p>
+            <p class="success">check your email every day for an announcement...</p>
           </form>
           <form class="ipad well">
             <input type="email" placeholder="add your email">
             <button>go</button>
+            <p>We will let you know when we finish making it for ipad.</p>
+            <p class="success">your email has been added</p>
           </form>
           <form class="iphone well">
             <input type="email" placeholder="add your email">
             <button>go</button>
+            <p>We'll give you a heads up when we finish the iPhone version!</p>
+            <p class="success">you rock!</p>
           </form>
         </div>
       </div> <!-- end #downloads -->
