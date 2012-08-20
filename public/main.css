@@ -181,7 +181,6 @@ button {
     padding: 10px;
     border-radius:10px;
     border:1px solid #093c44;
-    border-style:inset;
     font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
     text-transform:capitalize;
     text-shadow: 0 -1px 1px #093c44;
@@ -431,6 +430,7 @@ h2 {
             text-align:center;
             text-transform:lowercase;
             font-weight:300;
+            padding-top:1em;
         }
 
         #downloads #dl form.submitted { height:0; border:0; }
@@ -468,7 +468,8 @@ h2 {
         margin-right:4px;
     }
 
-    #downloads form input::-webkit-input-placeholder {
+    #downloads form input::-webkit-input-placeholder,
+    #downloads form input:-moz-placeholder {
         color:#b1afab;
     }
 

@@ -32,6 +32,9 @@ app.post('/interested_in/:version', function(req, res) {
 
         list = list[0];
 
+//console.log('SHOULD HAVE SUBSCRIBED', req.param('email'), list);
+//return res.send(201);
+
         api.listSubscribe({
             id: list.id,
             double_optin: false,
