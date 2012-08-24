@@ -322,7 +322,14 @@ h2 {
 
 #video {
     margin:73px auto;
-    width:560px;
+    width:855px; height:477px;
+    background-image:url(http://cdn.tomorrow.do/asweb/seb.png), url(http://cdn.tomorrow.do/asweb/play_button.png);
+    cursor:pointer;
+}
+
+#video:active {
+    position:relative;
+    -webkit-transform: translateY(1px);
 }
 
 #downloads {

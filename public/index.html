@@ -240,6 +240,13 @@
 
         $(this).closest('form').addClass('submitted');
       });
+
+      $('#video').click(function() {
+        if ($(this).hasClass('play')) return;
+
+        $(this).addClass('play').append($('<iframe width="853" height="480" src="http://www.youtube.com/embed/n5at71MHFkU?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>'));
+      });
+
     });
     </script>
   </head>
@@ -280,7 +287,7 @@
         </h4>
       </div> <!-- end #simplicity -->
 
-      <div id="video" class="section"><iframe width="560" height="315" src="http://www.youtube.com/embed/n5at71MHFkU?rel=0" frameborder="0" allowfullscreen></iframe></div>
+      <div id="video" class="section"></div>
 
       <div id="downloads" class="section">
         <h2>Get it for your:</h2>
