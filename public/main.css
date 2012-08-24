@@ -320,6 +320,11 @@ h2 {
         background-image:url(http://cdn.tomorrow.do/asweb/copy_file.png);
     }
 
+#video {
+    margin:73px auto;
+    width:560px;
+}
+
 #downloads {
     height:300px;
     margin-top:100px;
