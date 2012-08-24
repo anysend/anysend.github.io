@@ -93,6 +93,11 @@
          $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination-20}, 200);
       });
 
+      $('strong.video').click(function() {
+        var destination = $('#video').offset().top;
+        $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination-20}, 200);
+      });
+
       $('#dl button.android').click(function() { location.href = A_URL; });
 
       var arcs = [];
@@ -244,7 +249,7 @@
       $('#video').click(function() {
         if ($(this).hasClass('play')) return;
 
-        $(this).addClass('play').append($('<iframe width="853" height="480" src="http://www.youtube.com/embed/n5at71MHFkU?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>'));
+        $(this).addClass('play').append($('<iframe width="853" height="480" src="http://www.youtube.com/embed/n5at71MHFkU?rel=0&autoplay=1&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>'));
       });
 
     });
@@ -283,7 +288,7 @@
         </ol>
 
         <h4>
-          This is the general way it works. To get a really good picture check out the <strong>videos</strong>.
+          This is how simple it is. To see it in action, check out the <strong class="video">video</strong> below. It stars the Mac version.
         </h4>
       </div> <!-- end #simplicity -->
 
