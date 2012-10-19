@@ -323,13 +323,15 @@ h2 {
 #video {
     margin:73px auto;
     width:855px; height:477px;
-    background-image:url(http://cdn.tomorrow.do/asweb/seb.png), url(http://cdn.tomorrow.do/asweb/play_button.png);
+    background-image:url(http://cdn.tomorrow.do/asweb/seb.png),
+        url(http://cdn.tomorrow.do/asweb/play_button.png);
     cursor:pointer;
 }
 
 #video:active {
     position:relative;
     -webkit-transform: translateY(1px);
+    -moz-transform: translateY(1px);
 }
 
 #downloads {
@@ -486,7 +488,7 @@ h2 {
     }
 
     #downloads #dl.mac button.mac,
-    #downloads #dl.windows .well.windows,
+    #downloads #dl.windows button.windows,
     #downloads #dl.android button.android,
     #downloads #dl.ipad .well.ipad,
     #downloads #dl.iphone .well.iphone { display:block; }
@@ -542,6 +544,8 @@ footer {
     display:block;
     background-image: url(http://cdn.tomorrow.do/asweb/cityscape.png),
         -webkit-linear-gradient(top, rgba(241,255,252,0), rgba(206, 234, 243, 1));
+    background-image: url(http://cdn.tomorrow.do/asweb/cityscape.png),
+        -moz-linear-gradient(top, rgba(241,255,252,0), rgba(206, 234, 243, 1));
     height:368px;
     background-repeat:no-repeat, repeat;
     background-position:bottom, bottom;

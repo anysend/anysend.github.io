@@ -7,7 +7,8 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="/js/async.min.js"></script>
     <script>
-    var A_URL = 'https://play.google.com/store/apps/details?id=adylitica.android.anysend';
+    var A_URL = 'https://play.google.com/store/apps/details?id=adylitica.android.anysend',
+      MAC_APPSTORE_URL = 'http://bit.ly/sendAny';
 
     $(function() { $('body').addClass('loaded'); });
 
@@ -99,6 +100,10 @@
       });
 
       $('#dl button.android').click(function() { location.href = A_URL; });
+      $('#dl button.mac').click(function() { location.href = MAC_APPSTORE_URL; });
+      $('#dl button.windows').click(function() {
+        location.href = 'http://cdn.tomorrow.do/asweb/anysend_windows.zip'
+      });
 
       var arcs = [];
 
@@ -308,7 +313,8 @@
         <div id="dl" class="mac">
           <button class="mac">mac</button>
           <button class="android">android</button>
-          <form class="windows well">
+          <button class="windows">windows</button>
+          <form class="mac well">
             <input type="email" placeholder="add your email">
             <button>go</button>
             <p>Start getting excited, this is coming soon!</p>
