@@ -161,7 +161,7 @@
           curve.animate(arc.time, function(point,angle) {
             var transform = 'translateX(' + point.x + 'px) translateY(' + point.y + 'px)';
 
-            o.style.webkitTransform = o.style.mozTransform = transform;
+            o.style.webkitTransform = o.style.MozTransform = transform;
           });
 
           setTimeout(function() { $(o).addClass('vanish'); }, 1000);
