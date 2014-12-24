@@ -1,8 +1,8 @@
 body {
     background-image: 
-        url('http://cdn.tomorrow.do/asweb/devices_linked.png'),
-        url('http://cdn.tomorrow.do/asweb/top_gradient.png'),
-        url('http://cdn.tomorrow.do/asweb/noise_texture.png');
+        url('//d10i0hdaxgvcrd.cloudfront.net/asweb/devices_linked.png'),
+        url('//d10i0hdaxgvcrd.cloudfront.net/asweb/top_gradient.png'),
+        url('//d10i0hdaxgvcrd.cloudfront.net/asweb/noise_texture.png');
 
     background-repeat:
         no-repeat,
@@ -142,7 +142,7 @@ strong:hover {
 }
 
 #arcs {
-    background-image:url(http://cdn.tomorrow.do/asweb/arcs.png);
+    background-image:url(//d10i0hdaxgvcrd.cloudfront.net/asweb/arcs.png);
     background-repeat:no-repeat;
     background-position: center;
     width:1187px;
@@ -161,7 +161,7 @@ body.loaded #arcs {
 }
 
 #big_logo {
-    background-image:url(http://cdn.tomorrow.do/asweb/big_logo.png);
+    background-image:url(//d10i0hdaxgvcrd.cloudfront.net/asweb/big_logo.png);
     background-repeat:no-repeat;
     background-position: center;
     width:970px;
@@ -223,7 +223,7 @@ h2 {
 #logo {
     width:238px;
     height:82px;
-    background-image:url(http://cdn.tomorrow.do/asweb/as_logo.png);
+    background-image:url(//d10i0hdaxgvcrd.cloudfront.net/asweb/as_logo.png);
     display:block;
     position:absolute;
     right:30px;
@@ -309,7 +309,7 @@ h2 {
     }
 
     #simplicity .goes {
-        background-image:url(http://cdn.tomorrow.do/asweb/jump_right.png);
+        background-image:url(//d10i0hdaxgvcrd.cloudfront.net/asweb/jump_right.png);
     }
 
     #simplicity .who {
@@ -317,14 +317,14 @@ h2 {
     }
 
     #simplicity .copy {
-        background-image:url(http://cdn.tomorrow.do/asweb/copy_file.png);
+        background-image:url(//d10i0hdaxgvcrd.cloudfront.net/asweb/copy_file.png);
     }
 
 #video {
     margin:73px auto;
     width:855px; height:477px;
-    background-image:url(http://cdn.tomorrow.do/asweb/seb.png),
-        url(http://cdn.tomorrow.do/asweb/play_button.png);
+    background-image:url(//d10i0hdaxgvcrd.cloudfront.net/asweb/seb.png),
+        url(//d10i0hdaxgvcrd.cloudfront.net/asweb/play_button.png);
     cursor:pointer;
 }
 
@@ -542,9 +542,9 @@ h2 {
 
 footer {
     display:block;
-    background-image: url(http://cdn.tomorrow.do/asweb/cityscape.png),
+    background-image: url(//d10i0hdaxgvcrd.cloudfront.net/asweb/cityscape.png),
         -webkit-linear-gradient(top, rgba(241,255,252,0), rgba(206, 234, 243, 1));
-    background-image: url(http://cdn.tomorrow.do/asweb/cityscape.png),
+    background-image: url(//d10i0hdaxgvcrd.cloudfront.net/asweb/cityscape.png),
         -moz-linear-gradient(top, rgba(241,255,252,0), rgba(206, 234, 243, 1));
     height:368px;
     background-repeat:no-repeat, repeat;
