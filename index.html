@@ -240,8 +240,13 @@
 
         $('#dl form input').val(email_address);
 
-        $.post('/interested_in/' + $(this).prop('class').split(' ')[0], 
-        {email: $(this).find('input').val()});
+        var host = "https://messages-api.herokuapp.com";
+        // var host = "http://localhost:11527";
+
+        $.post(
+            host + "/interested_in/" + $(this).prop("class").split(" ")[0],
+            {email: $(this).find("input").val()}
+        );
 
         $(this).closest('form').addClass('submitted');
       });
